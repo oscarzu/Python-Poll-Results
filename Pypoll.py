@@ -31,7 +31,7 @@ for file in Data_File_List:
                 curVoteTally = List_of_Votes_Counted[indexofCandidate]
                 List_of_Votes_Counted[indexofCandidate] = curVoteTally + 1
                         
-
+#Declaring the output file with the results and doing the math ops
 resultsfile = open( "Election Results.txt","w")
 
 lines = []
