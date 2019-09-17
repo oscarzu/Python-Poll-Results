@@ -18,7 +18,7 @@ for file in Data_File_List:
         
         for row in csvreader:
             Vote_Totals = Vote_Totals + 1
-            candidate = row[2]
+            candidate = row[2] 
             
             if not candidate in List_of_Candidates:
                List_of_Candidates.append(candidate)
