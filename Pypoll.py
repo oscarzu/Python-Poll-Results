@@ -2,12 +2,14 @@
 import os
 import csv
 
+#Declaring the variables
 csvpath = os.path.join("Resources","Election_Data.csv")
 Vote_Totals = 0
 List_of_Candidates = []
 List_of_Votes_Counted = []
 Data_File_List = ["Resources/Election_Data.csv"]
 
+#Opening the file and reading it
 for file in Data_File_List:
     
     print(csvpath)
@@ -29,26 +31,25 @@ for file in Data_File_List:
                 curVoteTally = List_of_Votes_Counted[indexofCandidate]
                 List_of_Votes_Counted[indexofCandidate] = curVoteTally + 1
                         
-outputpath = os.path.join("Election Results.txt")
 
-resultsfile = open(outputpath, "Election Results.txt")
+resultsfile = open( "Election Results.txt","w")
 
 lines = []
 lines.append("Election Results")
-lines.append("-------------------------")
-lines.append("Total Votes: " + str(totalVotes))
-lines.append("-------------------------")
+lines.append("__________________________")
+lines.append("Total Votes: " + str(Vote_Totals))
+lines.append("___________________________")
 winningVotes = 0
 
 for candidate in List_of_Candidates:
     votes = List_of_Votes_Counted[List_of_Candidates.index(candidate)]
-    pctVotes = (votes/totalVotes) * 100
+    pctVotes = (votes/Vote_Totals) * 100
     if votes > winningVotes:
         winner = candidate
         winningVotes = votes
     lines.append(candidate + ": " + str(round(pctVotes,2)) + "% " + "(" + str(votes) + ")")
 
-lines.append("-------------------------")
+lines.append("___________________________")
 lines.append("Winner: " + winner)
 
 for line in lines:
