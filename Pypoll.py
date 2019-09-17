@@ -56,4 +56,4 @@ for line in lines:
     print(line)
     print(line, file = resultsfile)
 
-resultsfile.close()  
+resultsfile.close() 
